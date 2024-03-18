@@ -19,7 +19,7 @@ jobs:
       uses: education/autograding-command-grader@v1
       with:
         test-name: python manage.py test mi_app.tests
-        setup-command: sudo -H pip3 install pytest
+        setup-command: .\env\Scripts\activate
         command: python manage.py test mi_app.tests
         timeout: 10
     - name: Autograding Reporter
