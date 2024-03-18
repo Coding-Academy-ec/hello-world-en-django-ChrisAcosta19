@@ -19,7 +19,11 @@ jobs:
       uses: education/autograding-command-grader@v1
       with:
         test-name: python manage.py test mi_app.tests
-        setup-command: .\env\Scripts\activate
+        setup-command: |
+          python -m venv env
+          .\env\Scripts\activate
+          pip install django==4.2.2
+          python manage.py migrate
         command: python manage.py test mi_app.tests
         timeout: 10
     - name: Autograding Reporter
